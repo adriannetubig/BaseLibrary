@@ -5,73 +5,15 @@ namespace BaseEntity
 {
     public class EBase
     {
-        private string mCreatedBy { get; set; }
-        private string mUpdatedBy { get; set; }
-        private DateTime? mCreatedDate { get; set; }
-        private DateTime? mUpdatedDate { get; set; }
+        private DateTime? _createdDate { get; set; }
+        private DateTime? _updatedDate { get; set; }
+
+        public int CreatedBy { get; set; }
+        public int UpdatedBy { get; set; }
 
         [Column(TypeName = "DateTime2")]
-        public DateTime? CreatedDate
-        {
-            get
-            {
-                if (mCreatedDate.HasValue)
-                {
-                    return mCreatedDate;
-                }
-                else
-                {
-                    return DateTime.Now;
-                }
-            }
-            set
-            {
-                mCreatedDate = value;
-            }
-        }
-
-        public int CreatedBy
-        {
-            get
-            {
-                return Convert.ToInt32(mCreatedBy);
-            }
-            set
-            {
-                mCreatedBy = value.ToString();
-            }
-        }
-
+        public DateTime? CreatedDate { get; set; }
         [Column(TypeName = "DateTime2")]
-        public DateTime? UpdatedDate
-        {
-            get
-            {
-                if (mUpdatedDate.HasValue)
-                {
-                    return mUpdatedDate;
-                }
-                else
-                {
-                    return DateTime.Now;
-                }
-            }
-            set
-            {
-                mUpdatedDate = value;
-            }
-        }
-
-        public int UpdatedBy
-        {
-            get
-            {
-                return Convert.ToInt32(mUpdatedBy);
-            }
-            set
-            {
-                mUpdatedBy = value.ToString();
-            }
-        }
+        public DateTime? UpdatedDate { get; set; }
     }
 }
