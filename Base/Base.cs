@@ -2,6 +2,7 @@
 
 namespace Base
 {
+    [Obsolete("Use BaseModel project instead")]
     public class Base
     {
         public Base()
