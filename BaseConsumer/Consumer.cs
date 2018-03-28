@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BaseConsumer
 {
-    public class Consumer
+    public abstract class Consumer
     {
         private string _url => BaseUrl + DestinationUrl;
 

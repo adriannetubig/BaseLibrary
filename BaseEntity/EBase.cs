@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseEntity
 {
-    public class EBase
+    public abstract class EBase
     {
         private DateTime? _createdDate { get; set; }
         private DateTime? _updatedDate { get; set; }

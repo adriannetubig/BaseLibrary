@@ -2,7 +2,7 @@
 
 namespace BaseModel
 {
-    public class Base
+    public abstract class Base
     {
         private DateTime? _createdDate { get; set; }
         private DateTime? _updatedDate { get; set; }
