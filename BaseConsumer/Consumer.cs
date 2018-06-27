@@ -72,5 +72,23 @@ namespace BaseConsumer
                 return model;
             }
         }
+
+        protected async Task<Result> PostWithAuthentication<Result, Parameter>(Parameter model) where Result : class where Parameter : class
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var token = await AuthenticationToken();
+
+                var myContent = JsonConvert.SerializeObject(model);
+                var buffer = Encoding.UTF8.GetBytes(myContent);
+                var byteContent = new ByteArrayContent(buffer);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var response = await httpClient.PostAsync(new Uri(_url), byteContent);
+                var result = response.Content.ReadAsAsync<Result>(new[] { new JsonMediaTypeFormatter() }).Result;
+
+                return result;
+            }
+        }
     }
 }
