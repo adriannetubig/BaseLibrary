@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 
 namespace BaseData
 {
-    public class DBase : IDBase, IDisposable
+    public abstract class DBase : IDBase, IDisposable
     {
         public DBase(DbContext context)
         {
